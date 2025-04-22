@@ -34,12 +34,12 @@ def write_public_key(username: str, key, directory: str):
 def main():
     username = input("Enter username for snowflake key pair: ")
     password = getpass.getpass("Enter passphrase for private key: ").encode()
-    directory_input = input("Enter directory to save key pair (leave blank for current directory): ")
+    directory_input = input("Enter directory to save key pair (leave blank to save files in ./keys): ")
 
     # Use current directory if input is blank, otherwise use the provided directory
     save_directory = directory_input if directory_input else "./keys"
 
-    if save_directory != ".":
+    if save_directory != "./keys":
         os.makedirs(save_directory, exist_ok=True)
 
     # Generate and write private key
