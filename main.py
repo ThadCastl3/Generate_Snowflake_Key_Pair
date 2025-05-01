@@ -17,13 +17,14 @@ def write_key_pair(username: str, password: bytes, directory: str):
     with open(filename, "wb") as f:
         f.write(private_pem)
     print(f"Private key saved to {filename}")
-    return key  # Return the key object for public key generation
+    return key
 
 
 def write_public_key(username: str, key, directory: str):
     """Writes the public key corresponding to the private key to a PEM file in the specified directory."""
     public_pem = key.public_key().public_bytes(
-        encoding=serialization.Encoding.PEM, format=serialization.PublicFormat.SubjectPublicKeyInfo
+        encoding=serialization.Encoding.PEM,
+        format=serialization.PublicFormat.SubjectPublicKeyInfo,
     )
     filename = os.path.join(directory, f"{username}_key_pub.pem")
     with open(filename, "wb") as f:

@@ -6,4 +6,6 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "cryptography>=44.0.2",
+    "dotenv>=0.9.9",
+    "snowflake-connector-python>=3.15.0",
 ]
